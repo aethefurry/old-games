@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en" onclick="jump()">
+<head>
+<meta charset="UTF-8">
+<title>Confused_Block</title>
+<style>
+*{
+    padding:0;
+    margin:0;
+}
+#game{
+    width: 600px;
+    height: 350px;
+    background-color: #38899c;
+	margin: 20px auto;
+}
+#ground {
+	width:600px;
+	height: 32px;
+	top: 339px;
+    position: fixed;
+    background: url(data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAEIElEQVRYhbVX227bNhj+KFGy5Di1kaRbk7QYuqLFsl7sKhfFHmF7jr3EbvZkw2427CLIBmzpYciWNGmSDnEcu5YtieJh+GkrtSzFsRPsM2jY5E/y+48k2e7urtFawxiDHIyxq9+T/XcBrVm1Fg/DEFJKCCEqBSbJLArHceC6rm05AdqHFL4iQAOcc/tHKWUn3Qa0DjWan5OuIk99WZYhtzrPOz3Ps+3/Rm6R3L2cvqqYXgejtbWUUhJJPISUGZYa9+DXgoWsR+too+E+WeM/+OEywnqj4CtMBM5w0MfxP28QDyJkmUDvso3To7/x+ref8WrnJ7zc+RHHB3+BuR6CcAke9z4qZQzyyNJa4f3JW5y9OwT3fGQiBfv+u2+M59fx2dY2Hn/xFRr3WvD9wAqfHO7j4PXvaJ/uQ4oYjDlgzpgkaaCzYvY4LpqrD/H58208fPwMtSC0GxmjcX52gv29HZwd7CETQzgOh+PyEYGSfe4IRh8iSi4xsASMUZVZxosR6sDhNTtZidhOug3I6EYrQMsbZxeixnE9LK08QnP9GVw/LAnPC8etIWyuW2UWIkAmUjKFEon18W1Ra6xg88sXCBpr1h2zUHCB0Rni7hkSx4WW6Yxps5FGFzh5+QvSQQcfc6AaRQKUMkoAla4fVTowB9Bq5sJaCcS9s1J/FeauHBSgXtBEvbUBxv3S+G3B553HXI6w+SmW728iSwcQc7qIMor7S9BKQsvEpuQk5iZgVIaoc4Skfw4Z90rj14E2b21uQQx7iM4PoWRySwJGQ4mhbYtAqwxpdAmZDirrylQhcsFrS6N0FMPKCYuCsim6eEspBqPKhakQhFR8qAg1HzyF6wUl4WnY89/1rJ9xTb6T5YgEWaIqcwoW0FJg2P3XnmA04SbYitfagEyjUc7PUXpnEqBAS3rvR9Vc32x+xwvQWN1E3G8jiz9A3ZmA3fhmzXOQ5p2jP2zhoTYvyG1e2IJM+vMXoiqQyUXchbQBO//ZQZs/eLqNsLV+NwKz4Lj+xIlYDFDSvH20h6TfXoQAXTI4eG15HPWzUWusYmPrBYLl+5i+clJWDC/fQYlokbOAwa+3sPLouSVxE9Kog9NXvyLttzF9EcovLFfX8oWswObjrFU6PhHLuT+JBUqxQTa8ROf4T0gxKI1Xyeeba23QjwY4v+ggFQL1MMQnayuohwHYt18/Mb7vo1Gv495yA0EwukbZ51o2erJlUloXBH4N3HPBXQ6HMSRCoNv7gGEcW/nRk8tcEaCNKf5cx7HjimpLbhDb74LHcYR4CHS7FyUtJmPHTHxPqVrqmoatLBSJJGsjcvRbqgxcqwQwsvphWth8rF1Brmrzqr48bsZjjI/3VOBa9sesqpaavlJWyOUaTcnZmfZlpcCIAOPQimKHlCCbMADAf7bgMy+CGHLGAAAAAElFTkSuQmCC);
+	}
+#character {
+    width:32px;
+    height: 32px;
+    background: url(data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAA0ElEQVRYR+1W7RGDIAwla9UF7CR1pHYSu0C7Vrxgc0aulHAS9a7hDx7EvMcjH0CYB37mvScAAr9dxr2BI97jfQ1OwBUoKnB/9V8DdOieq3WtnfypGITsFGKyLANxzlomobVLT6IiIMEZmNboWxLQ2G0mECsWYigRyNk1IcBOfimQXlcaL7xffQWHKECghwUhgWvTS2tXlYbWHaoYA07AFfhfBSg9rIZ8f2bTkDa487UkQhVVTaAlsPSlImAFXt2OrYl4KXYFTqNAfOpZR3zGP0xEfOwDF7dLXAAAAABJRU5ErkJggg==);
+    position: relative;
+    top: 286px;
+	left: 5px;
+}
+.animate{
+    animation: jump 500ms linear;
+}
+@keyframes jump{
+    0%{top: 286px;}
+    30%{top: 140px;}
+    40%{top: 120px;}
+    50%{top: 120px;}
+    60%{top: 120px;}
+    70%{top: 140px;}
+    100%{top: 286px;}
+}
+
+#block {
+    width:32px;
+    height: 32px;
+    background: url(data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAgElEQVRYR2NkGGDAOMD2M4w6YDQERkNgNARGQ2A0BEZDYDQE0EPgPwMD1jYCzcRHHYAcAv//v37HwCgqBGom0k2cbhYxMDBg9eCoA2AhAA6e+Zs3MBy6/5ZhQXMpLB3QWhye2GhtES7zRx0ADgGU4IH1FUHpADld0EIcVN6MOgAA/DmxMMI8vYsAAAAASUVORK5CYII=);
+    position: relative;
+    top: 256px;
+    left: 568px;
+    animation: block 2s infinite linear;
+}
+@keyframes block{
+    0%{right:0px;}
+    100%{left:0px;}
+}
+p{ 
+	width: 600px; 
+	position: absolute;
+	margin: 0px auto; 
+	font-size: 14px; 
+	font-family: Arial, sans-serif;
+	font-weight: bold;
+	padding:10px;
+}
+#butt{
+	width: 600px; 
+	position: absolute;
+	margin: 0px auto;
+	top:175px;
+	z-index: 100;
+}
+button {
+	border-radius: 5px;
+	border:1px solid #000;
+	width:200px;
+	height:50px;
+	font-size:18px;
+	font-weight: bold;
+	font-family: Arial, sans-serif;
+}
+#overlay {
+	position: absolute;
+	width: 600px;
+	height: 350px;
+	background-color: rgba(0,0,0,0.5);
+	z-index: 99;
+}
+	</style>
+<link href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAA0ElEQVRYR+1W7RGDIAwla9UF7CR1pHYSu0C7Vrxgc0aulHAS9a7hDx7EvMcjH0CYB37mvScAAr9dxr2BI97jfQ1OwBUoKnB/9V8DdOieq3WtnfypGITsFGKyLANxzlomobVLT6IiIMEZmNboWxLQ2G0mECsWYigRyNk1IcBOfimQXlcaL7xffQWHKECghwUhgWvTS2tXlYbWHaoYA07AFfhfBSg9rIZ8f2bTkDa487UkQhVVTaAlsPSlImAFXt2OrYl4KXYFTqNAfOpZR3zGP0xEfOwDF7dLXAAAAABJRU5ErkJggg==" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+    <div id="game">
+		<div id="butt"><center><button onClick="window.location.reload();">&#8635;	
+ Try Again</button></center></div>
+		<div id="overlay"></div>
+		<p>Score: <span id="scoreSpan"></span>	<br>
+	High Score: <span id="highSpan"></span></p>
+        <div id="character"></div>
+        <div id="block"></div>
+		<div id="ground"></div>
+		
+    </div>
+<script type="text/javascript">
+document.getElementById('butt').style.display = 'none';
+document.getElementById('overlay').style.display = 'none';
+document.getElementById('character').style.display = 'block';
+document.body.onkeyup = function(e){
+    if(e.keyCode == 32){
+        if(dead) {
+			window.location.reload();
+		} else { 
+			jump(); 
+		}
+    }
+}
+	var character = document.getElementById("character");
+	var block = document.getElementById("block");
+	var counter = 0;
+
+	function jump(){
+		if(character.classList != "animate" ) {
+			character.classList.add("animate");
+		}
+		setTimeout(function(){
+			character.classList.remove("animate")
+		},500);
+	}
+
+	var dead = false;
+	var curr_high_score = localStorage.getItem("highscore")
+	if(!curr_high_score) { curr_high_score = "0" };
+	document.getElementById("highSpan").innerHTML = curr_high_score;
+
+	var cheackDead = setInterval(function() {
+		var characterTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
+		var blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
+		var score = Math.floor(counter/100)
+		if(blockLeft<45 && blockLeft>-45 && characterTop>=286){
+			block.style.animation = "none";
+			block.style.display = "none";
+			//alert("Game Over Score: " + score);
+			if(score > curr_high_score) {
+				localStorage.setItem("highscore",score);
+				document.getElementById("highSpan").innerHTML = score;
+			}
+			counter=0;
+			dead = true;
+			//document.getElementById("scoreSpan").innerHTML = '<button onClick="window.location.reload();">RETRY!</button>';
+			document.getElementById('butt').style.display = 'block';
+			document.getElementById('overlay').style.display = 'block';
+			document.getElementById('character').style.display = 'none';
+		} else {
+			if(!dead) {
+				counter++;
+				document.getElementById("scoreSpan").innerHTML = Math.floor(counter/100);
+			}
+		}
+	},10);
+</script>
+</body>
+</html>
